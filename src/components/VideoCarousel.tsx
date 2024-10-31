@@ -7,6 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 import { hightlightsSlides } from "../constants";
 import { pauseImg, playImg, replayImg } from "../utils";
 
+interface VideoState {
+    isEnd: boolean;
+    startPlay: boolean;
+    videoId: number;
+    isLastVideo: boolean;
+    isPlaying: boolean;
+}
+
 export default function VideoCarousel(): JSX.Element {
     const videoRef = useRef<(HTMLVideoElement | null)[]>([]);
     const videoSpanRef = useRef<(HTMLSpanElement | null)[]>([]);
@@ -14,7 +22,8 @@ export default function VideoCarousel(): JSX.Element {
 
     
     const [loadedData, setLoadedData] = useState<Event[]>([]);
-    const [video, setVideo] = useState({
+
+    const [video, setVideo] = useState<VideoState>({
         isEnd: false,
         startPlay: false,
         videoId: 0,
@@ -26,9 +35,9 @@ export default function VideoCarousel(): JSX.Element {
 
     useGSAP(() => {
         gsap.to('#slider',{
-            transform: `translateX(-${-100 * videoId}%)`,
+            transform: `translateX(${-100 * videoId}%)`,
             duration: 2,
-            ease: 'power4.inOut'
+            ease: 'power2.inOut'
         });
 
         gsap.to('#video', {
@@ -77,7 +86,7 @@ export default function VideoCarousel(): JSX.Element {
                 },
             });
 
-            if(videoId == 0){
+            if(videoId === 0){
                 anim.restart();
             }
 
@@ -154,7 +163,7 @@ export default function VideoCarousel(): JSX.Element {
                                     muted 
                                     ref={(e) => (videoRef.current[index] = e)} 
                                     onPlay={()=> setVideo((prevVideo) => ({...prevVideo, isPlaying: true}))}
-                                    onEnded={() => index !== 3 ? handleProcess('video-end', index) : handleProcess('video-last', index)}
+                                    onEnded={() => index !== 3 ? handleProcess('video-end', index) : handleProcess('video-last')}
                                     onLoadedMetadata={(e) => handleLoadedMetaData(e, index)}
                                     >
                                     <source src={list.video} type="video/mp4"/>
