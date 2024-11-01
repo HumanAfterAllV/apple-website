@@ -14,8 +14,8 @@ export default function HowItWorks(): JSX.Element {
     useGSAP(() => {
         gsap.from(chipRef.current, {
             scrollTrigger: {
-                trigger: '#chip',
-                start: '%20 bottom',
+                trigger: chipRef.current,
+                start: 'top 80%',
             },
             opacity: 0,
             scale: 2,
