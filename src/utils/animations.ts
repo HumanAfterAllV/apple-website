@@ -1,4 +1,27 @@
-import { TimelineMax } from 'gsap'; // Ensure you have gsap installed
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+interface AnimationProps {
+    [key: string]: any;
+}
+
+interface ScrollProps {
+    [key: string]: any;
+}
+
+export const animateWithGSAP = (target: gsap.DOMTarget, animationProps: AnimationProps, scrollProps?: ScrollProps) => {
+    gsap.to(target, {
+        ...animationProps,
+        scrollTrigger:{
+            trigger: target,
+            toggleActions: 'restart reverse restart reverse',
+            start: 'top 85%',
+            ...scrollProps,
+        }
+    });
+}
+
 
 export const animateWithGSAPTimeline = (
     timeline: TimelineMax,
