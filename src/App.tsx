@@ -4,6 +4,7 @@ import Highlights from "./components/Highlights";
 import Model from "./components/Model";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
+import Footer from "./components/Footer";
 
 export default function App(): JSX.Element {
     return(
@@ -14,6 +15,7 @@ export default function App(): JSX.Element {
             <Model/>
             <Features/>
             <HowItWorks/>
+            <Footer/>
         </main>
     )
 }
