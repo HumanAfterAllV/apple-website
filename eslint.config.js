@@ -22,6 +22,7 @@ export default [
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      '@react-three': true
     },
     rules: {
       ...js.configs.recommended.rules,
