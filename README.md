@@ -15,29 +15,34 @@ This project is a 3D replica of the iPhone 15 page, created using **Three.js** f
 - **GSAP** - Animation library for creating smooth, high-performance animations
 - **Vite** - Blazing-fast bundler for development
 
-🖌 Features
+## 🖌 Features
 Realistic 3D Model of iPhone 15 with interactive controls.
 Scroll-based Animations using GSAP and ScrollTrigger.
 Smooth Transitions between sections with immersive 3D effects.
 Responsive Design that adapts to various screen sizes.
-📂 Project Structure
-bash
-Copiar código
+
+
+## 📂 Project Structure
 📁 public                # Images, 3D models, and textures
 📁 src
 ├── 📁 components        # React components for different sections
 ├── App.jsx              # Main application component
 └── main.jsx             # Application entry point
-🧩 Key Dependencies
+
+
+## 🧩 Key Dependencies
 Three.js - npm install three
 @react-three/fiber - npm install @react-three/fiber
 @react-three/drei - npm install @react-three/drei
 GSAP - npm install gsap
 React - npm install react react-dom
-📝 Usage
+
+
+## 📝 Usage
 Modify the 3D model and animation settings in components/ThreeScene.jsx.
 Customize animations and transitions with GSAP in hooks/useGsapAnimations.js.
 
-Teach
+
+## Teach
 
 Javascript Mastery
